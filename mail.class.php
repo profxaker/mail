@@ -25,7 +25,8 @@ class MailSend {
 	
 	// Отправка
 	public function send() {
-		mail($this->email, $this->subject, $this->text);
+		if ($this->validate()) return false;
+		return mail($this->email, $this->subject, $this->text);
 	}
 	
 	// Валидация входящих данных
@@ -38,5 +39,10 @@ $mail = new MailSend();
 $mail->addEmail('profxaker@mail.ru');// Добавляем адресс
 $mail->addSubject('Title message'); // Добавляем тему
 $mail->addText('Text message'); // Добавляем текст
-$mail->send();
+
+if ($mail->send()) {
+	echo 'Отправлено успешно!';
+} else {
+	echo 'Не удалось отправить!';
+}
 ?>
