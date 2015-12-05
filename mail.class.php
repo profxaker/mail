@@ -1,4 +1,8 @@
 ﻿<?php
+/**
+ * @author  Andrey Kovalchuk
+ * @copyright 2015
+ */
 class MailSend {
 	private $email; // Адресс
 	private $subject; // Тема
@@ -31,8 +35,8 @@ class MailSend {
 }
 
 $mail = new MailSend();
-$mail->addEmail('profxaker@mail.ru');
-$mail->addSubject('Title message');
-$mail->addText('Text message');
+$mail->addEmail('profxaker@mail.ru');// Добавляем адресс
+$mail->addSubject('Title message'); // Добавляем тему
+$mail->addText('Text message'); // Добавляем текст
 $mail->send();
 ?>
