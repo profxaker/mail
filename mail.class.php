@@ -25,13 +25,14 @@ class MailSend {
 	
 	// Отправка
 	public function send() {
-		if ($this->validate()) return false;
+		if (!$this->validate()) return false;		
 		return mail($this->email, $this->subject, $this->text);
 	}
 	
 	// Валидация входящих данных
 	private function validate() {
-		
+		// Валидация адреса
+		return filter_var($this->email, FILTER_VALIDATE_EMAIL);
 	}
 }
 
